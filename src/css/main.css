@@ -1,0 +1,40 @@
+body{
+	font-family: 'Oxygen', sans-serif;
+	background-color: #e5eeff;
+}
+div.box{
+	display: block;
+	border-radius: 4px;
+	background-color: white;
+	box-shadow: 0 0 2px #AAA;
+	margin: 10px;
+}
+.box .post-title{
+	font-size: 18px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-weight: bolder;
+}
+
+.box .post-text{
+	padding: 10px;
+	word-wrap: break-word;
+	min-height: 5em;
+}
+
+.box .post-content{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.box .post-btn{
+	margin: 5px;
+}
+
+.box .close-btn{
+	border: none;
+	position: relative;
+	background-color: white;
+	padding: 0;
+	top: 7px;
+}
