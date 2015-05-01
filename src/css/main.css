@@ -16,6 +16,14 @@ div.box{
 	font-weight: bolder;
 }
 
+.box .title-enter{
+	font-size: 18px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	min-height: 2em;
+	font-weight: bolder;
+}
+
 .box .post-text{
 	padding: 10px;
 	word-wrap: break-word;
@@ -37,4 +45,12 @@ div.box{
 	background-color: white;
 	padding: 0;
 	top: 7px;
+}
+.line{
+	height: 1px;
+	background-color: #EEE;
+}
+.box .post-date{
+	font-size: 10px;
+	text-decoration-color: #BBB;
 }
