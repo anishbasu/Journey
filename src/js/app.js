@@ -1,29 +1,33 @@
-var journey = angular.module('journey', ['contenteditable','ngSanitize'])
+var journey = angular.module('journey', ['contenteditable','ngSanitize','ngStorage'])
 
-journey.controller('mainCtrl', ['$scope', function($scope) {
+journey.controller('mainCtrl', function($scope,$localStorage) {
     $scope.post_title = "Hello!"
     $scope.txt="Type some stuff out?"
-    $scope.posts_n = 0//localStorage.getItem("posts_n")!=null?parseInt(Integer.localStorage.getItem("posts_n")):0;
-    $scope.posts = new Array()//localStorage.getItem("post")!=null?JSON.parse(localStorage.get("post")):new Array();
+    //Init localStorage
+    $scope.$storage = $localStorage.$default({
+      posts: [],
+      posts_n: 0
+    });
+
     $scope.submitPost = function () {
       sub_post = {id: $scope.posts_n, title: $scope.post_title, date: new Date().toDateString(), txt:$scope.txt}
-      $scope.post_title = ""
-      $scope.posts_n = $scope.posts_n+1;
+      $scope.post_title = "Thank you!"
+      $scope.$storage.posts_n = $scope.$storage.posts_n+1;
       $scope.txt = "";
-      $scope.posts.push(sub_post)
+      $scope.$storage.posts.push(sub_post)
       
     }
 
     $scope.deletePost = function(id) {
       var n = -1
-      for (var i = $scope.posts.length - 1; i >= 0; i--) {
-        if($scope.posts[i].id == id){
+      for (var i = $scope.$storage.posts.length - 1; i >= 0; i--) {
+        if($scope.$storage.posts[i].id == id){
           n = i
           break
         }
       }
       if (n != -1){
-        $scope.posts.splice(n,1)
+        $scope.$storage.posts.splice(n,1)
       }
       //save()
     }
@@ -32,4 +36,4 @@ journey.controller('mainCtrl', ['$scope', function($scope) {
      localStorage.setItem("posts_n", $scope.posts_n)
      localStorage.setItem("posts", JSON.stringify($scope.posts))
     }
-}])
+})

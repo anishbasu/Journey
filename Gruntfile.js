@@ -41,6 +41,12 @@ module.exports = function(grunt) {
 				},
 				{
 					expand: true,
+					cwd: '<%= bower.directory %>/ngstorage',
+					src: 'ngStorage.min.js',
+					dest: '<%= config.dist %>/js'
+				},
+				{
+					expand: true,
 					cwd: '<%= config.app %>',
 					src: 'js/*.js',
 					dest: '<%= config.dist %>'
